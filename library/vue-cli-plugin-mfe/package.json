@@ -1,0 +1,13 @@
+{
+  "name": "vue-cli-plugin-mfe",
+  "description": "A vue-cli plugin for mfe applications and parcels",
+  "version": "1.0.0",
+  "scripts": {},
+  "keywords": [
+    "vuejs",
+    "mfe",
+    "vue-cli-plugin"
+  ],
+  "author": "Jack",
+  "license": "ABC"
+}

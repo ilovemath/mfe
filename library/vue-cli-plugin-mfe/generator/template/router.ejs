@@ -1,0 +1,10 @@
+const routes = [
+<%_for (let page of pages) {_%>
+  {
+    path: '/<%=page%>',
+    name: '<%=page%>',
+    component: () => import('@/views/<%=page%>')
+  },
+<%_}_%>
+]
+export default routes

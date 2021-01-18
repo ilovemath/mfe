@@ -1,0 +1,37 @@
+import qs from 'qs';
+import { http } from 'mfe'
+import { downloadFile } from '@/utils'
+
+function get(id){
+    return http.get('<%=page%>s/'+id)
+}
+
+function insert(data){
+    return http.post('<%=page%>s',data)
+}
+
+function del(ids){
+    return http.delete('<%=page%>s',{
+        params:{ ids },
+        paramsSerializer:(params)=> qs.stringify(params, {arrayFormat: 'repeat'})
+    })
+}
+
+function update(id,data){
+    return http.put('<%=page%>s/'+id,data)
+}
+
+function list(params){
+    return http.get('<%=page%>s',{
+        params,
+        paramsSerializer:(params)=> qs.stringify(params, {arrayFormat: 'repeat'})
+    })
+}
+
+function download(params){
+    return http.get('<%=page%>s/exports',{params,responseType:'blob'}).then(response => {
+       downloadFile(response,'<%=page%>' , 'xls')
+    }).catch(() => {})
+}
+
+export default { get, insert, update, del, list, download }
